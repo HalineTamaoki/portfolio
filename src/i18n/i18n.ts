@@ -1,19 +1,30 @@
 import i18n from 'i18next';
-import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { reactI18nextModule } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
+import translationEN from './en/en.json'
+import translationES from './es/es.json'
+import translationPTBR from './pt-br/pt-br.json'
+
+
+const resources = {
+  en: { translation: translationEN },
+  es: { translation: translationES },
+  ptBr: { translation: translationPTBR },
+};
 
 i18n
   .use(LanguageDetector)
-  .use(reactI18nextModule)
+  .use(initReactI18next)
   .init({
-    fallbackLng: 'pt-br',
-    debug: true,
+    resources,
+    lng: 'en',
+    fallbackLng: 'en',
+    ns: 'translation',
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+        escapeValue: false,
     },
     react: {
-      wait: true,
+        useSuspense: false,
     },
   });
 
