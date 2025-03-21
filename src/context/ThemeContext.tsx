@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@mui/material';
 import React, { createContext, ReactNode, useMemo, useState } from 'react'
-import { darkTheme } from './darkTheme';
-import { lightTheme } from './lightTheme';
+import { darkTheme } from '../common/theme/darkTheme';
+import { lightTheme } from '../common/theme/lightTheme';
 
 type ThemeOptions = 'dark' | 'light'; 
 

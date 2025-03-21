@@ -8,5 +8,17 @@
     "spanish": "Spanish",
 
     "dark-mode": "Dark Mode",
-    "light-mode": "Light Mode"
+    "light-mode": "Light Mode",
+
+    "about-subtitle": "I'm a Full Stack developer with expertise in web development. I’ve worked in international and national projects.",
+    "about-text": "My journey started with Training and Development, but in 2021 I discovered my true vocation in IT area. I speak English, Spanish and Portuguese and a little of German and Japanese.  In my spare time, I like to run and practice exercises.",
+    "about-frontend": "Frontend Development",
+    "about-backend": "Backend Development",
+    "about-qa": "Quality Assurance (QA)",
+    "about-frontend1": "React, Angular",
+    "about-frontend2": "Material UI, Angular Material, CSS",
+    "about-backend1": "Spring Boot (JAVA)",
+    "about-backend2": "MySQL, Oracle SQL, PostgreSQL, MongoDB",
+    "about-qa1": "Playright, Postman",
+    "about-qa2": "Manual tests"
 }
