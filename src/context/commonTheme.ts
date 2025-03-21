@@ -10,6 +10,9 @@ export const commonTheme = createTheme({
         secondary: {
             light: 'D9D9D9',
             main: '#3E3E3E'
+        },
+        common: {
+            black: '#1D1D1D',
         }
     },
     typography: {

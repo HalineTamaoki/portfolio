@@ -9,7 +9,7 @@ interface ThemeContextType {
     setActiveTheme: React.Dispatch<React.SetStateAction<ThemeOptions>>;
 }
 
-const ThemeContext = createContext<ThemeContextType | null>(null);
+export const ThemeContext = createContext<ThemeContextType>({setActiveTheme: () => {}});
 
 function CustomThemeProvider({children}: {children:ReactNode}) {
     const [ activeTheme, setActiveTheme ] = useState<ThemeOptions>('dark');

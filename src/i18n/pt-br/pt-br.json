@@ -1,1 +1,9 @@
-{}
+{
+    "nav-about": "Quem sou eu?",
+    "nav-projects": "Projetos",
+    "nav-contact": "Contato",
+
+    "portuguese": "Português",
+    "english": "Inglês",
+    "spanish": "Espanhol"
+}

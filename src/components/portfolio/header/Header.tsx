@@ -1,56 +1,74 @@
-import { AppBar, Toolbar, Drawer, useTheme, Stack, Button } from '@mui/material'
-import { useState } from 'react'
+import { AppBar, Toolbar, useTheme, Stack, Button, Typography, Switch, FormGroup, IconButton } from '@mui/material'
 import { sections } from '../../../common/utils';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
-import { Language } from '@mui/icons-material';
-
-const drawerWidth = 240;
+import MobileMenu from './MobileMenu';
+import { useContext, useMemo, useState } from 'react';
+import ReactCountryFlag from 'react-country-flag';
+import LanguageMenu from './LanguageMenu';
+import { ThemeContext } from '../../../context/ThemeContext';
+import { Menu } from '@mui/icons-material';
 
 export default function Header() {
-    const [mobileOpen, setMobileOpen] = useState(false);
     const theme = useTheme();
     const { t, i18n } = useTranslation();
+    const { setActiveTheme } = useContext(ThemeContext);
+    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
-    const handleDrawerToggle = () => {
-        setMobileOpen((prevState) => !prevState);
-      };
+    const closeLanguageMenu = () => {
+        setAnchorEl(null);
+    }
     
+    const language = useMemo(() => {
+        switch (i18n.language) {
+            case 'es':
+                return {flag: 'ES', language: 'ES'};        
+            case 'ptBr':
+                return {flag: 'BR', language: 'PT'};
+            default:
+                return {flag: 'US', language: 'EN'};
+        }
+    }, [i18n.language]);
+
     return (
         <header>
             <AppBar component="nav" sx={{backgroundColor: theme.palette.secondary.main}}>
-                <Toolbar sx={{display: 'flex', width: '100%'}}>
-                    <Stack direction='row' gap={3}>
-                        {sections.map(section => <HashLink to={`/#${section}`} style={{color: theme.palette.text.primary}}>{t(`nav-${section}`)}</HashLink>)}
+                <Toolbar sx={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+                    <IconButton onClick={() => setMobileOpen(true)} sx={{display: {sm: 'none'}}}>
+                        <Menu sx={{fontSize: '1.5em', color: theme.palette.common.white}}/>
+                    </IconButton>
+                    <Stack direction='row' gap={3} m='auto' sx={{display: {xs: 'none', sm: 'flex'}}}>
+                        {sections.map(section => <HashLink  to={`/#${section}`}  key={section}>
+                            <Typography 
+                                color={theme.palette.common.white} 
+                                fontSize='1.25rem' 
+                                sx={{
+                                    '&:hover': {
+                                        color: theme.palette.primary.main,
+                                        fontWeight: 600
+                                    }
+                                }}
+                            >{t(`nav-${section}`)}</Typography>
+                        </HashLink>)}
                     </Stack>
-                    <Stack>
-                        <Button component="label"
-                            role={undefined}
-                            variant="contained"
-                            tabIndex={-1}
-                            startIcon={<Language />}
-                        >
-                            {i18n.language}
+                    <Stack direction='row' gap={3}>
+                        <Button onClick={e => setAnchorEl(e.currentTarget)}  sx={{display: 'flex', gap: 1, color: theme.palette.common.white, fontSize: '1.25rem'}}>
+                            <ReactCountryFlag countryCode={language.flag} svg style={{width: '1.5em', height: '1.5em'}} />
+                            {language.language}
                         </Button>
+                        <FormGroup sx={{display: 'flex', justifyContent: 'center'}}>
+                            <Switch 
+                                checked={theme.palette.mode === 'dark'} 
+                                onChange={e => setActiveTheme(e.target.checked ? 'dark' : 'light')}
+                                color='default'
+                            />
+                        </FormGroup>
                     </Stack>
                 </Toolbar>
             </AppBar>
-        <nav>
-            <Drawer
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
-                }}
-                sx={{
-                    display: { xs: 'block', sm: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                }}
-                >
-                
-            </Drawer>
-        </nav>
+            <MobileMenu handleClose={() => setMobileOpen(false)} open={mobileOpen}/>
+            {Boolean(anchorEl) && <LanguageMenu handleClose={() => closeLanguageMenu()} anchorEl={anchorEl}/>}
         </header>
     )
 }
