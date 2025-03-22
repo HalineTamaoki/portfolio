@@ -23,11 +23,14 @@ const theme = createTheme({
             fontSize: '2em'
         },
         h2: {
-            fontSize: '1.2em',
+            fontSize: '1.15em',
             fontWeight: 600
         },
         body1: {
             lineHeight: 1.75
+        },
+        subtitle1: {
+            fontWeight: 600
         }
     }
 });

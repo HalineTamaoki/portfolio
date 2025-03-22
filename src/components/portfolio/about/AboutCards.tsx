@@ -18,13 +18,24 @@ export default function AboutCards(props: AboutCardsProps) {
     const theme = useTheme();
 
     return (
-        <Card sx={{width: {md: '30%'}, bgcolor: theme.palette.primary.main, paddingInline: 1, borderRadius: 5}}>
-            <CardContent >
-                <Typography variant="h2" mb={3} color={theme.palette.common.white}>{t(title)}</Typography>
-                <Stack sx={{rowGap:1}}>
+        <Card sx={{
+            width: {md: '30%'}, 
+            bgcolor: theme.palette.primary.main, 
+            paddingInline: 1, 
+            borderRadius: 5
+        }} elevation={3}>
+            <CardContent sx={{paddingBlock: {xs: '0.75em !important', md: '1.25em !important'}}}>
+                <Typography variant="h2" color={theme.palette.common.white} sx={{mb: {xs: 1, md: 2}}}>{t(title)}</Typography>
+                <Stack>
                     {items.map(item => <Stack direction='row' gap={2}>
-                        <Stack sx={{color: theme.palette.common.white}}>{item.icon}</Stack>
-                        <Typography color={theme.palette.common.white}>{t(item.labelId)}</Typography>
+                        <Stack 
+                            sx={{color: theme.palette.common.white, display: {xs: 'none', md: 'block'}}}
+                        >{item.icon}</Stack>
+                        <Typography 
+                            component={'li'} 
+                            color={theme.palette.common.white}
+                            sx={{listStyleType: {md: 'none'}}}
+                        >{t(item.labelId)}</Typography>
                     </Stack>)}
                 </Stack>
             </CardContent>

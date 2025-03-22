@@ -12,6 +12,6 @@ export const lightTheme = createTheme(deepmerge(commonTheme, {
         text: {
             primary: '#1D1D1D',
             secondary: '#FFFFFF'
-        }
+        },
     },
 }))
