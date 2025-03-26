@@ -20,5 +20,9 @@
     "about-backend1": "Spring Boot (JAVA)",
     "about-backend2": "MySQL, Oracle SQL, PostgreSQL, MongoDB",
     "about-qa1": "Playright, Postman",
-    "about-qa2": "Manual tests"
+    "about-qa2": "Manual tests",
+
+    "projects-header": "My Projects",
+    "projects-watch-demo": "Watch demo"
+
 }

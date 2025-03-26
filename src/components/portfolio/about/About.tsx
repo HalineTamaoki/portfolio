@@ -2,8 +2,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import AboutCards, { AboutCardItem } from "./AboutCards";
 import { Brush, CheckBox, Code, Storage, ThumbsUpDown } from "@mui/icons-material";
-import { sections } from "../../../common/utils";
 import myPhoto from './../../../assets/mypicture.png';
+import SectionLayout from "../SectionLayout";
 
 const frontendItems: AboutCardItem[] = [
     {labelId: "about-frontend1", icon: <Code /> }, 
@@ -24,7 +24,7 @@ export default function About() {
     const { t } = useTranslation();
 
     return (
-        <Box component={'section'} display='grid' sx={{placeItems: 'center', mt:{xs: 10, sm: 12}}} id={sections[0]}>
+        <SectionLayout position={1} sx={{placeItems: 'center', marginInline: 0}}>
             <Box 
                 component={'img'}
                 src={myPhoto}
@@ -44,6 +44,6 @@ export default function About() {
                 <AboutCards title="about-backend" items={backendItems}/>
                 <AboutCards title="about-qa" items={qaItems}/>
             </Stack>
-        </Box>
+        </SectionLayout>
     )
 }

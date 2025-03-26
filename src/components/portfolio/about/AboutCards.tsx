@@ -27,7 +27,7 @@ export default function AboutCards(props: AboutCardsProps) {
             <CardContent sx={{paddingBlock: {xs: '0.75em !important', md: '1.25em !important'}}}>
                 <Typography variant="h2" color={theme.palette.common.white} sx={{mb: {xs: 1, md: 2}}}>{t(title)}</Typography>
                 <Stack>
-                    {items.map(item => <Stack direction='row' gap={2}>
+                    {items.map(item => <Stack key={item.labelId} direction='row' gap={2}>
                         <Stack 
                             sx={{color: theme.palette.common.white, display: {xs: 'none', md: 'block'}}}
                         >{item.icon}</Stack>
