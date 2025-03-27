@@ -23,5 +23,6 @@ export interface Project {
     name: Translated
     tags: ProjectTags[],
     description: Translated,
-    demoSrc?: string
+    demoSrc?: string,
+    githubUrl?: string
 }

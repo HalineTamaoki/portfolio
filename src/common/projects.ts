@@ -2,6 +2,9 @@ import { Project, ProjectTags } from "../types/Project";
 import project1 from "./../assets/project1.png"
 import project2 from "./../assets/project2.png"
 import project3 from "./../assets/project3.png"
+import project4 from "./../assets/project4.png"
+import project5 from "./../assets/project5.png"
+import project6 from "./../assets/project6.png"
 
 export const projects: Project[] = [
     {
@@ -46,5 +49,49 @@ export const projects: Project[] = [
             es: "The project aimed to create a internal marketplace for a Brazilian company, where they could reward their employees or sell brand products.\nThe project was developed using Angular and Spring Boot. The backend was developed in microsservices and messaging with RabbitMQ.",
             ptBr: "The project aimed to create a internal marketplace for a Brazilian company, where they could reward their employees or sell brand products.\nThe project was developed using Angular and Spring Boot. The backend was developed in microsservices and messaging with RabbitMQ.",
         }
+    },
+    {
+        imageSrc: project4,
+        name:{
+            en: "Website - Educação Sem Fronteiras",
+            es: "Website - Educação Sem Fronteiras",
+            ptBr: "Website - Educação Sem Fronteiras"
+        },
+        tags: [ProjectTags.wordpress, ProjectTags.javascript],
+        description: {
+            en: "I’ve developed new features like placement tests and registration form. Those features were integrated with Google Workspace and Pipefy.\nIt was developed using Wordpress and HTML, CSS, Javascript and PHP.",
+            es: "I’ve developed new features like placement tests and registration form. Those features were integrated with Google Workspace and Pipefy.\nIt was developed using Wordpress and HTML, CSS, Javascript and PHP.",
+            ptBr: "I’ve developed new features like placement tests and registration form. Those features were integrated with Google Workspace and Pipefy.\nIt was developed using Wordpress and HTML, CSS, Javascript and PHP.",
+        }
+    }
+    ,
+    {
+        imageSrc: project5,
+        name:{
+            en: "Contract management system",
+            es: "Contract management system",
+            ptBr: "Contract management system"
+        },
+        tags: [ProjectTags.angular, ProjectTags.springBoot],
+        description: {
+            en: "The project was to develop a system to manage the contracts of the company. It would connect user’s input, pre registered data and other systems to generate and manage contracts.\nThe system was built with microsservices using Spring Boot. The frontend was made with Angular.",
+            es: "The project was to develop a system to manage the contracts of the company. It would connect user’s input, pre registered data and other systems to generate and manage contracts.\nThe system was built with microsservices using Spring Boot. The frontend was made with Angular.",
+            ptBr: "The project was to develop a system to manage the contracts of the company. It would connect user’s input, pre registered data and other systems to generate and manage contracts.\nThe system was built with microsservices using Spring Boot. The frontend was made with Angular.",
+        }
+    },
+    {
+        imageSrc: project6,
+        name:{
+            en: "Go Video",
+            es: "Go Video",
+            ptBr: "Go Video"
+        },
+        tags: [ProjectTags.angular, ProjectTags.springBoot],
+        description: {
+            en: "This was a study project made as final paper of Full Stack Development course. The goal was to create an website to manage equipment of video producers.\nThe project was created using Spring Boot and Angular.",
+            es: "This was a study project made as final paper of Full Stack Development course. The goal was to create an website to manage equipment of video producers.\nThe project was created using Spring Boot and Angular.",
+            ptBr: "This was a study project made as final paper of Full Stack Development course. The goal was to create an website to manage equipment of video producers.\nThe project was created using Spring Boot and Angular.",
+        },
+        githubUrl: "https://github.com/HalineTamaoki/go-video_frontend"
     }
 ]
