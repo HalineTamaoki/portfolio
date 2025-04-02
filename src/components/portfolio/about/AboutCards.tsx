@@ -25,7 +25,7 @@ export default function AboutCards(props: AboutCardsProps) {
             borderRadius: 5
         }} elevation={3}>
             <CardContent sx={{paddingBlock: {xs: '0.75em !important', md: '1.25em !important'}}}>
-                <Typography variant="h2" color={theme.palette.common.white} sx={{mb: {xs: 1, md: 2}}}>{t(title)}</Typography>
+                <Typography variant="h3" color={theme.palette.common.white} sx={{mb: {xs: 1, md: 2}}}>{t(title)}</Typography>
                 <Stack>
                     {items.map(item => <Stack key={item.labelId} direction='row' gap={2}>
                         <Stack 

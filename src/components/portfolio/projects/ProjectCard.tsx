@@ -2,6 +2,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Chip, Stack, Typogra
 import { Project } from "../../../types/Project";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
+import { cardWidth } from "./Project";
 
 export default function ProjectCard({project: {imageSrc, name, tags, description, demoSrc}}: {project: Project}) {
     const theme = useTheme();
@@ -9,12 +10,12 @@ export default function ProjectCard({project: {imageSrc, name, tags, description
 
     return (
         <Card sx={{
-            width: {md: '30%'}, 
+            minWidth: {md: cardWidth}, 
             bgcolor: theme.palette.common.white, 
             paddingInline: 1, 
             borderRadius: 5
         }}>
-            <CardMedia component={"img"} image={imageSrc} aria-hidden={true} height={200} sx={{objectFit: 'cover'}}/>
+            <CardMedia component={"img"} image={imageSrc} aria-hidden={true} height={200}/>
             <CardContent sx={{color: theme.palette.common.black}}>
                 <Typography variant='subtitle1'>{name[language]}</Typography>
                 <Stack direction="row">{tags.map(tag => <Chip key={tag.toString()}
