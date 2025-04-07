@@ -2,15 +2,16 @@ import { Button, Card, CardActions, CardContent, CardMedia, Chip, Stack, Typogra
 import { Project } from "../../../types/Project";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
-import { cardWidth } from "./Project";
 
-export default function ProjectCard({project: {imageSrc, name, tags, description, demoSrc}}: {project: Project}) {
+export default function ProjectCard({project: {imageSrc, name, tags, description, demoSrc}, cardWidth}: 
+    {project: Project, cardWidth: number },
+) {
     const theme = useTheme();
     const { i18n: {language} } = useTranslation();
 
     return (
         <Card sx={{
-            minWidth: {md: cardWidth}, 
+            minWidth: cardWidth, 
             bgcolor: theme.palette.common.white, 
             paddingInline: 1, 
             borderRadius: 5

@@ -1,3 +1,11 @@
 a {
     text-decoration: none;
 }
+
+@media (hover: hover) {
+    .css-irlznt-MuiButtonBase-root-MuiButton-root:hover {
+        background-color: 'transparent';
+        border-color: 'transparent';
+        box-shadow: 'none';
+    }
+}
