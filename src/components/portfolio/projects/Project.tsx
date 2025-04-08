@@ -50,7 +50,7 @@ export default function Project() {
     
 
     return (
-        <SectionLayout position={2}>
+        <SectionLayout position={1}>
             <Typography variant='h2'>{t('projects-header')}</Typography>
             <Box 
                 display={'flex'}   

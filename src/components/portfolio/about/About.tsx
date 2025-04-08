@@ -24,7 +24,7 @@ export default function About() {
     const { t } = useTranslation();
 
     return (
-        <SectionLayout position={1} sx={{placeItems: 'center', marginInline: 0}}>
+        <SectionLayout position={0} sx={{placeItems: 'center', marginInline: 0}}>
             <Box 
                 component={'img'}
                 src={myPhoto}

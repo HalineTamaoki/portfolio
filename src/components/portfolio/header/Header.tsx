@@ -3,11 +3,12 @@ import { sections } from '../../../common/utils';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import MobileMenu from './MobileMenu';
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import LanguageMenu from './LanguageMenu';
 import { ThemeContext } from '../../../context/ThemeContext';
 import { Menu } from '@mui/icons-material';
+import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
 
 export default function Header() {
     const theme = useTheme();
@@ -15,11 +16,26 @@ export default function Header() {
     const { setActiveTheme } = useContext(ThemeContext);
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [headerVisible, setheaderVisible] = useState(true);
+    const breakpoint = useGetCurrentBreakpoint();
 
     const closeLanguageMenu = () => {
         setAnchorEl(null);
     }
     
+    useEffect(() => {
+        if(breakpoint === 'xs' ){
+            setheaderVisible(true);
+        } else {
+            const handleScroll = () => {
+                setheaderVisible(window.scrollY < 50);
+            };
+        
+            window.addEventListener("scroll", handleScroll);
+            return () => window.removeEventListener("scroll", handleScroll);
+        }
+    }, [breakpoint])
+
     const language = useMemo(() => {
         switch (i18n.language) {
             case 'es':
@@ -30,10 +46,17 @@ export default function Header() {
                 return {flag: 'US', language: 'EN'};
         }
     }, [i18n.language]);
-
+    
     return (
         <header>
-            <AppBar component="nav" sx={{backgroundColor: theme.palette.secondary.main}}>
+            <AppBar component="nav" sx={{
+                backgroundColor: theme.palette.secondary.main, 
+                opacity: headerVisible ? 1 : 0,
+                transition: 'opacity 0.3s ease-in-out', 
+                "&:hover": {
+                    opacity: 1
+                }
+            }}>
                 <Toolbar sx={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
                     <IconButton onClick={() => setMobileOpen(true)} sx={{display: {sm: 'none'}}}>
                         <Menu sx={{fontSize: '1.5em', color: theme.palette.common.white}}/>
