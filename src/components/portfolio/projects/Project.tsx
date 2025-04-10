@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard';
 import SectionLayout from '../SectionLayout';
 import { projects } from '../../../common/projects';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
 import { useSwipeable } from 'react-swipeable';
 
@@ -12,18 +12,24 @@ export default function Project() {
     const { t } = useTranslation();
     const [ canScrollLeft, setCanScrollLeft] = useState<boolean>();
     const [ canScrollRight, setCanScrollRight] = useState<boolean>();
+    const [ cardWidth, setCardWidth] = useState<number>(300);
     const scrollRef = useRef<HTMLElement>(null);
     const breakPoint = useGetCurrentBreakpoint();
 
-    const cardWidth: number = useMemo(() => {
-        if(breakPoint === 'xs'){
-            return scrollRef.current?.clientWidth ?? 0;
-        } else if (breakPoint === 'sm' || breakPoint === 'md'){
-            return ((scrollRef.current?.clientWidth ?? 0) / 2) - 10
-        } {
-            return ((scrollRef.current?.clientWidth ?? 0) / 3) - 10
+
+    useEffect(() => {
+        if (scrollRef.current) {
+          const width = scrollRef.current.getBoundingClientRect().width;
+    
+          if (breakPoint === 'xs') {
+            setCardWidth(width);
+          } else if (breakPoint === 'sm' || breakPoint === 'md') {
+            setCardWidth((width / 2) - 10);
+          } else {
+            setCardWidth((width / 3) - 10);
+          }
         }
-    }, [scrollRef.current?.clientWidth, breakPoint])
+      }, [breakPoint, scrollRef.current]);   
     
 
     const scroll = (direction: 'left' | 'right') => {
@@ -44,11 +50,10 @@ export default function Project() {
     }, [cardWidth])
     
     const handlers = useSwipeable({
-        onSwipedLeft: () => console.log('left'),
+        onSwipedLeft: () => scroll('left'),
         onSwipedRight: () => scroll('right'),
     });
     
-
     return (
         <SectionLayout position={1}>
             <Typography variant='h2'>{t('projects-header')}</Typography>
