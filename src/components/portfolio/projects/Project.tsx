@@ -29,7 +29,7 @@ export default function Project() {
     
     return (
         <SectionLayout position={1}>
-            <Typography variant='h2'>{t('projects-header')}</Typography>
+            <Typography variant='h2' sx={{marginInline: {xs: 2}}}>{t('projects-header')}</Typography>
             <Box 
                 mt={5} 
                 overflow='hidden' 
@@ -52,8 +52,8 @@ export default function Project() {
                             clickable: breakPoint === 'lg' || breakPoint === 'xl'
                         }}
                         >
-                        {projects.map(p => <SwiperSlide  style={{ height: '100%' }} >
-                            <ProjectCard key={p.name.en} project={p}/>
+                        {projects.map(p => <SwiperSlide key={p.name.en} style={{ height: '100%' }} >
+                            <ProjectCard project={p}/>
                         </SwiperSlide>)}
                     </Swiper>
                     <NavigationButton direction='next'/>
