@@ -7,7 +7,7 @@ export default function Portfolio() {
   return (
     <>
       <Header />
-      <Box mt={8}>
+      <Box mt={2}>
         <About />
         <Project />
       </Box>
