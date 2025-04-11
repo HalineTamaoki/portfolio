@@ -7,13 +7,13 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import LanguageMenu from './LanguageMenu';
 import { ThemeContext } from '../../../context/ThemeContext';
-import { Menu } from '@mui/icons-material';
+import { DarkMode, LightMode, Menu } from '@mui/icons-material';
 import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
 
 export default function Header() {
     const theme = useTheme();
     const { t, i18n } = useTranslation();
-    const { setActiveTheme } = useContext(ThemeContext);
+    const { setActiveTheme, activeTheme } = useContext(ThemeContext);
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [headerVisible, setheaderVisible] = useState(true);
@@ -80,7 +80,14 @@ export default function Header() {
                             <ReactCountryFlag countryCode={language.flag} svg style={{width: '1.5em', height: '1.5em'}} />
                             {language.language}
                         </Button>
-                        <FormGroup sx={{display: 'flex', justifyContent: 'center'}}>
+                        <IconButton
+                            onClick={() => setActiveTheme(prev => prev === 'dark' ? 'light' : 'dark')}  
+                            sx={{color: theme.palette.common.white, fontSize: '1.25rem', display: {xs: 'block', sm: 'none'}}}
+                            aria-label={t('change-mode-button')}
+                        >
+                            {activeTheme === 'dark' ? <DarkMode /> : <LightMode />}
+                        </IconButton>
+                        <FormGroup sx={{justifyContent: 'center', display: {xs: 'none', sm: 'flex'}}}>
                             <Switch 
                                 checked={theme.palette.mode === 'dark'} 
                                 onChange={e => setActiveTheme(e.target.checked ? 'dark' : 'light')}

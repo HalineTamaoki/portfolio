@@ -6,9 +6,11 @@
     "portuguese": "Portuguese",
     "english": "English",
     "spanish": "Spanish",
+    "change-language-button": "Change language",
 
-    "dark-mode": "Dark Mode",
-    "light-mode": "Light Mode",
+    "dark-mode": "Dark",
+    "light-mode": "Light",
+    "change-mode-button": "Change mode",
 
     "about-subtitle": "I'm a Full Stack developer with expertise in web development. I’ve worked in international and national projects.",
     "about-text": "My journey started with Training and Development, but in 2021 I discovered my true vocation in IT area. I speak English, Spanish and Portuguese and a little of German and Japanese.  In my spare time, I like to run and practice exercises.",

@@ -13,7 +13,7 @@ export default function LanguageMenu({handleClose, anchorEl}: {handleClose: () =
     
     return (
         <ClickAwayListener onClickAway={handleClose}>
-            <Paper sx={{ width: 320, maxWidth: '100%', alignSelf: 'end'}}>
+            <Paper sx={{ width: 320, maxWidth: '100%', alignSelf: 'end', left: {xs: 0, sm: 'auto'}}}>
                 <Menu anchorEl={anchorEl} open={true} onClose={handleClose}>
                     <MenuItem onClick={() => changeLanguage('ptBr')} sx={{display: 'flex', gap: 2}}>
                         <ListItemIcon>
