@@ -3,9 +3,9 @@ a {
 }
 
 @media (hover: hover) {
-    .css-irlznt-MuiButtonBase-root-MuiButton-root:hover {
-        background-color: 'transparent';
-        border-color: 'transparent';
-        box-shadow: 'none';
+    .MuiButton-root:hover {
+        background-color: 'transparent' !important;
+        border-color: 'transparent' !important;
+        box-shadow: 'none' !important;
     }
 }

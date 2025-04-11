@@ -36,6 +36,28 @@ const theme = createTheme({
         subtitle1: {
             fontWeight: 600
         }
+    },
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: (theme) => ({
+                ".swiper-button-next, .swiper-button-prev": {
+                  color: theme.palette.primary.main,
+                },
+                ".swiper-pagination": {
+                    position: 'relative',
+                    marginTop: 10
+                },
+                ".swiper-pagination-bullet-active": {
+                    backgroundColor: `${theme.palette.primary.main} !important`,
+                },
+                ".swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled": {
+                    color: theme.palette.secondary.light,
+                },
+                ".swiper-slide": {
+                    height: 'unset !important'
+                }
+            }),
+        }
     }
 });
 

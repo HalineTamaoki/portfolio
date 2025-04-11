@@ -6,6 +6,9 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Portfolio from './pages/Portfolio'
 import CV from './pages/CV'
 import { CustomThemeProvider } from './context/ThemeContext'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 function App() {
   return (

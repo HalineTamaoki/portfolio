@@ -3,18 +3,19 @@ import { Project } from "../../../types/Project";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
 
-export default function ProjectCard({project: {imageSrc, name, tags, description, demoSrc}, cardWidth}: 
-    {project: Project, cardWidth: number },
+export default function ProjectCard({project: {imageSrc, name, tags, description, demoSrc}}: 
+    {project: Project},
 ) {
     const theme = useTheme();
     const { i18n: {language} } = useTranslation();
 
     return (
         <Card sx={{
-            minWidth: cardWidth, 
+            minWidth: 200, 
             bgcolor: theme.palette.common.white, 
             paddingInline: 1, 
-            borderRadius: 5
+            borderRadius: 5,
+            height: '100%'
         }}>
             <CardMedia component={"img"} image={imageSrc} aria-hidden={true} height={200}/>
             <CardContent sx={{color: theme.palette.common.black}}>

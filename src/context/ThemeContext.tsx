@@ -7,9 +7,13 @@ type ThemeOptions = 'dark' | 'light';
 
 interface ThemeContextType {
     setActiveTheme: React.Dispatch<React.SetStateAction<ThemeOptions>>;
+    activeTheme: ThemeOptions;
 }
 
-export const ThemeContext = createContext<ThemeContextType>({setActiveTheme: () => {}});
+export const ThemeContext = createContext<ThemeContextType>({
+    setActiveTheme: () => {},
+    activeTheme: 'dark'
+});
 
 function CustomThemeProvider({children}: {children:ReactNode}) {
     const [ activeTheme, setActiveTheme ] = useState<ThemeOptions>('dark');
@@ -17,7 +21,7 @@ function CustomThemeProvider({children}: {children:ReactNode}) {
     const theme = useMemo(() => activeTheme === 'dark' ? darkTheme : lightTheme, [activeTheme])
 
     return (
-        <ThemeContext.Provider value={{setActiveTheme}}>
+        <ThemeContext.Provider value={{setActiveTheme, activeTheme}}>
             <ThemeProvider theme={theme}>
                 {children}
             </ThemeProvider>
