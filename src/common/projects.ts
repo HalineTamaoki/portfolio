@@ -5,6 +5,9 @@ import project3 from "./../assets/project3.png"
 import project4 from "./../assets/project4.png"
 import project5 from "./../assets/project5.png"
 import project6 from "./../assets/project6.png"
+import videoGoVideo from "./../assets/govideo-video.mp4"
+import videoEsfOnline from "./../assets/video-esf.mp4"
+import videoEsfSite from "./../assets/video-esf-site.mp4"
 
 export const projects: Project[] = [
     {
@@ -34,7 +37,7 @@ export const projects: Project[] = [
             es: "Moodle is an open-source Learning Management System (LMS). The goal was to implement the system for a NGO that helps immigrants and refugees in Brazil.\nThe system used HTML, CSS and PHP. The work based both administrative and programming solutions.",
             ptBr: "Moodle is an open-source Learning Management System (LMS). The goal was to implement the system for a NGO that helps immigrants and refugees in Brazil.\nThe system used HTML, CSS and PHP. The work based both administrative and programming solutions.",
         },
-        demoSrc: "tbd"
+        demoSrc: videoEsfOnline
     },
     {
         imageSrc: project3,
@@ -62,7 +65,8 @@ export const projects: Project[] = [
             en: "I’ve developed new features like placement tests and registration form. Those features were integrated with Google Workspace and Pipefy.\nIt was developed using Wordpress and HTML, CSS, Javascript and PHP.",
             es: "I’ve developed new features like placement tests and registration form. Those features were integrated with Google Workspace and Pipefy.\nIt was developed using Wordpress and HTML, CSS, Javascript and PHP.",
             ptBr: "I’ve developed new features like placement tests and registration form. Those features were integrated with Google Workspace and Pipefy.\nIt was developed using Wordpress and HTML, CSS, Javascript and PHP.",
-        }
+        },
+        demoSrc: videoEsfSite
     }
     ,
     {
@@ -92,6 +96,7 @@ export const projects: Project[] = [
             es: "This was a study project made as final paper of Full Stack Development course. The goal was to create an website to manage equipment of video producers.\nThe project was created using Spring Boot and Angular.",
             ptBr: "This was a study project made as final paper of Full Stack Development course. The goal was to create an website to manage equipment of video producers.\nThe project was created using Spring Boot and Angular.",
         },
-        githubUrl: "https://github.com/HalineTamaoki/go-video_frontend"
+        demoSrc: videoGoVideo,
+        githubUrl: "https://github.com/HalineTamaoki?tab=repositories&q=go+video&"
     }
 ]

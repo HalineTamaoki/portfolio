@@ -9,10 +9,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import NavigationButton from './NavigationButton';
 import { ThemeContext } from '../../../context/ThemeContext';
+import VideoModal from './VideoModal';
 
 export default function Project() {
     const { t } = useTranslation();
     const [ slidesPerView, setSlidesPerView] = useState<number>(3);
+    const [ videoOpen, setVideoOpen] = useState<string>()
     const breakPoint = useGetCurrentBreakpoint();
     const theme = useTheme();
     const { activeTheme } = useContext(ThemeContext); 
@@ -31,9 +33,8 @@ export default function Project() {
         <SectionLayout position={1}>
             <Typography variant='h2' sx={{marginInline: {xs: 2}}}>{t('projects-header')}</Typography>
             <Box 
-                mt={5} 
                 overflow='hidden' 
-                sx={{marginInline: {xs: 3, sm: 0}}}
+                sx={{marginInline: {xs: 1, sm: 0}, mt: {xs: 3, sm: 5}}}
             >
                 <Box
                     display={'flex'}   
@@ -53,7 +54,7 @@ export default function Project() {
                         }}
                         >
                         {projects.map(p => <SwiperSlide key={p.name.en} style={{ height: '100%' }} >
-                            <ProjectCard project={p}/>
+                            <ProjectCard project={p} openVideo={setVideoOpen}/>
                         </SwiperSlide>)}
                     </Swiper>
                     <NavigationButton direction='next'/>
@@ -66,16 +67,8 @@ export default function Project() {
                         }
                     } : {}} 
                 />
-
-                {/* <Button onClick={() => scroll('left')} disabled={!canScrollLeft} sx={{display: {xs: 'none', sm: 'block'}}}>
-                    <ArrowBackIos sx={{fontSize: 50}}/>
-                </Button>
-                <Box display={'flex'} overflow={'auto'} gap={2} borderRadius={5} {...handlers} ref={scrollRef} >
-                </Box>
-                <Button onClick={() => scroll('right')} disabled={!canScrollRight} sx={{display: {xs: 'none', sm: 'block'}}}>
-                    <ArrowForwardIos sx={{fontSize: 50}}/>
-                </Button> */}
             </Box>
+            {videoOpen && <VideoModal src={videoOpen} onClose={() => setVideoOpen(undefined)}/>}
         </SectionLayout>
     )
 }
