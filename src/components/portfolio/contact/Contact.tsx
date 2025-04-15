@@ -27,15 +27,37 @@ export default function Contact() {
     return (
         <SectionLayout position={2} sx={{mb: 4}}>
             <Typography variant='h2' sx={{marginInline: {xs: 2}}}>{t('contact-header')}</Typography>
-            <Box id="contact-wrapper" display='grid' gridTemplateColumns={'40% 60%'} paddingInline={2}>
-                <Box id="contact-main" display='flex' flexDirection='column' gap={3} pt={7}>
+            <Box 
+                id="contact-wrapper" 
+                display='grid' 
+                paddingInline={2} 
+                sx={{
+                    gridTemplateColumns: {xs: 'auto', sm: '40% 60%'}
+                }}
+            >
+                <Box 
+                    id="contact-main" 
+                    display='flex' 
+                    flexDirection='column'
+                    sx={{
+                        gap: {xs: 0.5, sm: 3},
+                        pt: { xs: 2, sm: 7 },
+                        pb: { xs: 2, sm: 0 },
+                    }}
+                >
                     {contactInfo.map(info => (
                         <Link 
                             id={info.name} 
                             href={info.url} 
                             target="_blank" 
                             key={info.name} 
-                            sx={{display: 'flex', flexDirection: 'row', gap: 1, textDecoration: 'none', color: 'inherit'}}
+                            sx={{
+                                display: 'flex', 
+                                flexDirection: 'row', 
+                                gap: 1, 
+                                textDecoration: 'none', 
+                                color: 'inherit',
+                            }}
                         >
                             {info.icon}
                             <Typography>{info.name}</Typography>
