@@ -9,7 +9,7 @@ const theme = createTheme({
         },
         secondary: {
             light: '#D9D9D9',
-            main: '#3E3E3E'
+            main: '#3E3E3E',
         },
         common: {
             black: '#1D1D1D',
@@ -55,7 +55,7 @@ const theme = createTheme({
                 },
                 ".swiper-slide": {
                     height: 'unset !important'
-                }
+                },
             }),
         }
     }

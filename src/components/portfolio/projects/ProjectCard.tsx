@@ -29,7 +29,7 @@ export default function ProjectCard({project: {imageSrc, name, tags, description
                 <Stack direction='row' gap={1}>
                     <Typography variant='subtitle1'>{name[language]}</Typography>
                     {githubUrl && <Link href={githubUrl} target='_blank'>
-                        <GitHub sx={{color: theme.palette.text.secondary}}/>
+                        <GitHub sx={{color: theme.palette.common.black}}/>
                     </Link>}
                 </Stack>
                 <Stack direction="row" mb={2} gap={1} mt={0.5}>{tags.map(tag => <Chip key={tag.toString()}

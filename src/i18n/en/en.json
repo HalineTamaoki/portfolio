@@ -25,6 +25,14 @@
     "about-qa2": "Manual tests",
 
     "projects-header": "My Projects",
-    "projects-watch-demo": "Watch demo"
+    "projects-watch-demo": "Watch demo",
 
+    "contact-header": "Contact",
+    "contact-name": "Name *",
+    "contact-email": "Email *",
+    "contact-message": "Message *",
+    "contact-send": "Send",
+    
+    "required": "Required",
+    "wrong-email-format": "Wrong email format"
 }
