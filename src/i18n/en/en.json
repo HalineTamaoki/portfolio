@@ -28,11 +28,14 @@
     "projects-watch-demo": "Watch demo",
 
     "contact-header": "Contact",
-    "contact-name": "Name *",
-    "contact-email": "Email *",
-    "contact-message": "Message *",
+    "contact-name": "Name",
+    "contact-email": "Email",
+    "contact-message": "Message",
     "contact-send": "Send",
-    
+
+    "form-mandatory": "{{field}} is mandatory",
+    "form-email-error": "The e-mail must have a '@'",
+
     "required": "Required",
     "wrong-email-format": "Wrong email format"
 }
