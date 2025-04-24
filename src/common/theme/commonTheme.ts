@@ -14,9 +14,6 @@ const theme = createTheme({
         common: {
             black: '#1D1D1D',
         },
-        error: {
-            main: '#d726c2',
-        }
     },
     typography: {
         fontFamily:"'Lato', sans-serif",

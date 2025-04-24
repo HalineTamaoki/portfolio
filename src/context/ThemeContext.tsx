@@ -1,7 +1,8 @@
 import { ThemeProvider } from '@mui/material';
-import React, { createContext, ReactNode, useMemo, useState } from 'react'
+import React, { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
 import { darkTheme } from '../common/theme/darkTheme';
 import { lightTheme } from '../common/theme/lightTheme';
+import { STORAGE_THEME_STRING } from '../common/utils';
 
 type ThemeOptions = 'dark' | 'light'; 
 
@@ -15,8 +16,25 @@ export const ThemeContext = createContext<ThemeContextType>({
     activeTheme: 'dark'
 });
 
+const getDefaultTheme = () => {
+    const localStorageTheme = localStorage.getItem(STORAGE_THEME_STRING);
+        if(localStorageTheme === 'dark' || localStorageTheme === 'light'){
+            return localStorageTheme as ThemeOptions;
+        } else {
+            return 'dark';
+        }
+}
+
 function CustomThemeProvider({children}: {children:ReactNode}) {
-    const [ activeTheme, setActiveTheme ] = useState<ThemeOptions>('dark');
+    const [ activeTheme, setActiveTheme ] = useState<ThemeOptions>(getDefaultTheme());
+
+    useEffect(() => {
+        
+    }, [])
+    
+    useEffect(() => {
+        localStorage.setItem(STORAGE_THEME_STRING, activeTheme);
+    }, [activeTheme])
 
     const theme = useMemo(() => activeTheme === 'dark' ? darkTheme : lightTheme, [activeTheme])
 
@@ -29,4 +47,4 @@ function CustomThemeProvider({children}: {children:ReactNode}) {
     )
 }
 
-export {CustomThemeProvider}
+export { CustomThemeProvider };

@@ -12,12 +12,15 @@ const resources = {
   ptBr: { translation: translationPTBR },
 };
 
+if(!localStorage.getItem('i18nextLng')) {
+  localStorage.setItem('i18nextLng', 'en');
+}
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
     fallbackLng: 'en',
     ns: 'translation',
     interpolation: {

@@ -1,8 +1,9 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Alert, Box, Link, Typography, useTheme } from "@mui/material";
 import SectionLayout from "../SectionLayout";
 import { useTranslation } from "react-i18next";
 import { Email, GitHub, LinkedIn } from "@mui/icons-material";
 import ContactForm from "./ContactForm";
+import { useEffect, useState } from "react";
 
 const contactInfo = [
     {
@@ -24,6 +25,13 @@ const contactInfo = [
 
 export default function Contact() {
     const { t } = useTranslation();
+    const [ emailStatus, setEmailStatus] = useState<'success' | 'error'>();
+    const theme = useTheme();
+
+    useEffect(() => {
+      setTimeout(() => setEmailStatus(undefined), 3000);
+    }, [emailStatus])
+    
     return (
         <SectionLayout position={2} sx={{mb: 4}}>
             <Typography variant='h2' sx={{marginInline: {xs: 2}}}>{t('contact-header')}</Typography>
@@ -57,6 +65,7 @@ export default function Contact() {
                                 gap: 1, 
                                 textDecoration: 'none', 
                                 color: 'inherit',
+                                width: 'fit-content',
                             }}
                         >
                             {info.icon}
@@ -64,8 +73,20 @@ export default function Contact() {
                         </Link>
                     ))}
                 </Box>
-                <ContactForm />
+                <ContactForm setEmailStatus={setEmailStatus}/>
             </Box>
+            {emailStatus && <Alert 
+                severity={emailStatus} 
+                sx={{
+                    position: 'fixed', 
+                    top: 10, 
+                    zIndex: 1101, 
+                    justifySelf: 'center', 
+                    color: theme.palette.text.primary,
+                    width: {xs: '90%', sm: 'auto'}
+                }}
+            >{emailStatus === 'success' ? t('message-sent') : t('error-sending-email')}</Alert>}
+            
         </SectionLayout>
     )
 }

@@ -29,7 +29,7 @@
 
     "contact-header": "Contact",
     "contact-name": "Name",
-    "contact-email": "Email",
+    "contact-email": "E-mail",
     "contact-message": "Message",
     "contact-send": "Send",
 
@@ -37,5 +37,8 @@
     "form-email-error": "The e-mail must have a '@'",
 
     "required": "Required",
-    "wrong-email-format": "Wrong email format"
+    "wrong-email-format": "Wrong e-mail format",
+    
+    "message-sent": "Thank you for your message 😄",
+    "error-sending-email": "There was an error sending the e-mail. Please try again later."
 }
