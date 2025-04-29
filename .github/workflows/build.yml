@@ -1,6 +1,23 @@
 name: Build and Rollout Pipeline
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch: 
+    inputs:
+      build:
+        description: 'NPM build'
+        type: boolean
+        required: true
+        default: true
+      test:
+        description: 'NPM test (Jest)'
+        type: boolean
+        required: true
+        default: true    
+      deploy:
+        description: 'Deploy'
+        type: boolean
+        required: true
+        default: false
 
 jobs:
   build:
@@ -14,26 +31,34 @@ jobs:
         run: npm install
       
       - name: Build
+        env:
+          VITE_EMAIL_SERVICE_ID: ${{ secrets.VITE_EMAIL_SERVICE_ID }}
+          VITE_EMAIL_TEMPLATE_ID: ${{ secrets.VITE_EMAIL_TEMPLATE_ID }}
+          VITE_EMAIL_PUBLIC_KEY: ${{ secrets.VITE_EMAIL_PUBLIC_KEY }}
         run: npm run build
 
   test:
-      runs-on: ubuntu-latest
-      name: Test
-      steps:
-        - name: Test
-          run: npm run test
+    if: ${{ github.event.inputs.test == 'true' || github.event.inputs.deploy == 'true' }}
+
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - name: Test
+        run: npm run test
 
   deploy:
-      runs-on: ubuntu-latest
-      name: Deploy
-      steps:
-        - name: Deploy
-          uses: s0/git-publish-subdir-action@develop
-          env:
-            REPO: self
-            BRANCH: build
-            FOLDER: build
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            MESSAGE: "Build: ({sha}) {msg}"
+    if: ${{ github.event.inputs.deploy == 'true' }}
+
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: build
+          FOLDER: build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
         
  
