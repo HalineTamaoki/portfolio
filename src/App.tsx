@@ -19,7 +19,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path='/' element={<Portfolio />}/>
-              <Route path='/' element={<CV />}/>
+              <Route path='/cv' element={<CV />}/>
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </BrowserRouter>
