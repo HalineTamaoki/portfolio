@@ -7,3 +7,14 @@ expect.extend(matchers);
 vi.mock('react-i18next', async () => {
   return await import('./__mocks__/i18nmock');
 });
+
+global.matchMedia = global.matchMedia || function() {
+  return {
+      matches: false,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+  };
+};
