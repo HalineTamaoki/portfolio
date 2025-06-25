@@ -2,10 +2,10 @@ import { Alert, Box, Link, Typography, useTheme } from "@mui/material";
 import SectionLayout from "../SectionLayout";
 import { useTranslation } from "react-i18next";
 import { Email, GitHub, LinkedIn } from "@mui/icons-material";
-import ContactForm from "./ContactForm";
+import { ContactForm } from "./ContactForm";
 import { useEffect, useState } from "react";
 
-const contactInfo = [
+export const contactInfo = [
     {
         url: 'mailTo:haline.tamaoki@gmail.com',
         name: 'haline.tamaoki@gmail.com',

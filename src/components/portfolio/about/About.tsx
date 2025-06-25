@@ -26,6 +26,7 @@ export function About() {
     return (
         <SectionLayout position={0} sx={{placeItems: 'center', marginInline: 0}}>
             <Box 
+                id="about-photo"
                 component={'img'}
                 src={myPhoto}
                 aria-hidden={true}
@@ -39,7 +40,7 @@ export function About() {
                 <Typography variant="subtitle1" mb={0.75}>{t('about-subtitle')}</Typography>
                 <Typography sx={{lineHeight: 2}}>{t('about-text')}</Typography>
             </Stack>
-            <Stack width='90%' justifyContent='space-around' rowGap={2} sx={{flexDirection: {md: 'row'}, mt: {xs: 2, md: 3}}}>
+            <Stack width='90%' justifyContent='space-around' rowGap={2} sx={{flexDirection: {md: 'row'}, mt: {xs: 2, md: 3}}} id='about-cards'>
                 <AboutCards title="about-frontend" items={frontendItems}/>
                 <AboutCards title="about-backend" items={backendItems}/>
                 <AboutCards title="about-qa" items={qaItems}/>

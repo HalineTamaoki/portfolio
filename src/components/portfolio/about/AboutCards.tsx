@@ -23,7 +23,7 @@ export default function AboutCards(props: AboutCardsProps) {
             bgcolor: theme.palette.primary.main, 
             paddingInline: 1, 
             borderRadius: 5
-        }} elevation={3}>
+        }} elevation={3} className="about-card" id={title}>
             <CardContent sx={{paddingBlock: {xs: '0.75em !important', md: '1.25em !important'}}}>
                 <Typography variant="h3" color={theme.palette.common.white} sx={{mb: {xs: 1, md: 2}}}>{t(title)}</Typography>
                 <Stack>
