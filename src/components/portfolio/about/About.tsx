@@ -20,7 +20,7 @@ const qaItems: AboutCardItem[] = [
     {labelId: "about-qa2", icon: <ThumbsUpDown /> }
 ];
 
-export default function About() {
+export function About() {
     const { t } = useTranslation();
 
     return (

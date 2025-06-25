@@ -10,7 +10,7 @@ import { ThemeContext } from '../../../context/ThemeContext';
 import { DarkMode, LightMode, Menu } from '@mui/icons-material';
 import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
 
-export default function Header() {
+export function Header() {
     const theme = useTheme();
     const { t, i18n } = useTranslation();
     const { setActiveTheme, activeTheme } = useContext(ThemeContext);
@@ -61,7 +61,7 @@ export default function Header() {
                     <IconButton onClick={() => setMobileOpen(true)} sx={{display: {sm: 'none'}}}>
                         <Menu sx={{fontSize: '1.5em', color: theme.palette.common.white}}/>
                     </IconButton>
-                    <Stack direction='row' gap={3} m='auto' sx={{display: {xs: 'none', sm: 'flex'}}}>
+                    <Stack direction='row' gap={3} m='auto' sx={{display: {xs: 'none', sm: 'flex'}}} id='sections-menu'>
                         {sections.map(section => <HashLink  to={`/#${section}`}  key={section}>
                             <Typography 
                                 color={theme.palette.common.white} 
@@ -72,11 +72,12 @@ export default function Header() {
                                         fontWeight: 600
                                     }
                                 }}
+                                id={`nav-${section}`}
                             >{t(`nav-${section}`)}</Typography>
                         </HashLink>)}
                     </Stack>
                     <Stack direction='row' gap={3}>
-                        <Button onClick={e => setAnchorEl(e.currentTarget)}  sx={{display: 'flex', gap: 1, color: theme.palette.common.white, fontSize: '1.25rem'}}>
+                        <Button onClick={e => setAnchorEl(e.currentTarget)}  sx={{display: 'flex', gap: 1, color: theme.palette.common.white, fontSize: '1.25rem'}} id='language-btn'>
                             <ReactCountryFlag countryCode={language.flag} svg style={{width: '1.5em', height: '1.5em'}} />
                             {language.language}
                         </Button>
@@ -84,11 +85,13 @@ export default function Header() {
                             onClick={() => setActiveTheme(prev => prev === 'dark' ? 'light' : 'dark')}  
                             sx={{color: theme.palette.common.white, fontSize: '1.25rem', display: {xs: 'block', sm: 'none'}}}
                             aria-label={t('change-mode-button')}
+                            id='theme-btn-mobile'
                         >
                             {activeTheme === 'dark' ? <DarkMode /> : <LightMode />}
                         </IconButton>
                         <FormGroup sx={{justifyContent: 'center', display: {xs: 'none', sm: 'flex'}}}>
                             <Switch 
+                                id='theme-switch'
                                 checked={theme.palette.mode === 'dark'} 
                                 onChange={e => setActiveTheme(e.target.checked ? 'dark' : 'light')}
                                 color='default'

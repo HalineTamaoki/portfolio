@@ -23,7 +23,7 @@ const contactInfo = [
     }
 ]
 
-export default function Contact() {
+export function Contact() {
     const { t } = useTranslation();
     const [ emailStatus, setEmailStatus] = useState<'success' | 'error'>();
     const theme = useTheme();

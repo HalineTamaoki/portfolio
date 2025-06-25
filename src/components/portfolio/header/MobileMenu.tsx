@@ -25,7 +25,7 @@ export default function MobileMenu({handleClose, open}: {handleClose: () => void
                 <Divider />
                 <List>
                     {sections.map((section) => (
-                        <ListItem key={section} disablePadding sx={{paddingBlock: 1}}>
+                        <ListItem key={section} disablePadding sx={{paddingBlock: 1}} id={`nav-${section}-mobile`}>
                             <HashLink to={`/#${section}`} style={{color: 'inherit', width: '100%'}}>
                                 <ListItemButton >
                                     <Typography color={theme.palette.common.black}>{t(`nav-${section}`)}</Typography>

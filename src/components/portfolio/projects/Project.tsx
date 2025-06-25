@@ -11,7 +11,7 @@ import NavigationButton from './NavigationButton';
 import { ThemeContext } from '../../../context/ThemeContext';
 import VideoModal from './VideoModal';
 
-export default function Project() {
+export function Project() {
     const { t } = useTranslation();
     const [ slidesPerView, setSlidesPerView] = useState<number>(3);
     const [ videoOpen, setVideoOpen] = useState<string>()

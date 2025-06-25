@@ -1,7 +1,8 @@
-import * as matchers from '@testing-library/jest-dom/matchers';
-import { expect } from 'vitest';
 import "@testing-library/jest-dom";
-import { vi } from 'vitest';
+import * as matchers from '@testing-library/jest-dom/matchers';
+import '@testing-library/jest-dom/vitest';
+import { cleanup, configure } from '@testing-library/react';
+import { afterEach, expect, vi } from 'vitest';
 
 expect.extend(matchers);
 vi.mock('react-i18next', async () => {
@@ -18,3 +19,9 @@ global.matchMedia = global.matchMedia || function() {
       dispatchEvent: vi.fn(),
   };
 };
+
+configure({ testIdAttribute: 'id' });
+
+afterEach(() => {
+  cleanup();
+});
