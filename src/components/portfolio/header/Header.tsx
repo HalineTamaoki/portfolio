@@ -16,7 +16,7 @@ export function Header() {
     const { setActiveTheme, activeTheme } = useContext(ThemeContext);
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [headerVisible, setheaderVisible] = useState(true);
+    const [headerVisible, setHeaderVisible] = useState(true);
     const breakpoint = useGetCurrentBreakpoint();
 
     const closeLanguageMenu = () => {
@@ -25,10 +25,10 @@ export function Header() {
     
     useEffect(() => {
         if(breakpoint === 'xs' ){
-            setheaderVisible(true);
+            setHeaderVisible(true);
         } else {
             const handleScroll = () => {
-                setheaderVisible(window.scrollY < 50);
+                setHeaderVisible(window.scrollY < 50);
             };
         
             window.addEventListener("scroll", handleScroll);
@@ -49,7 +49,7 @@ export function Header() {
     
     return (
         <header>
-            <AppBar component="nav" sx={{
+            <AppBar component="nav" id='header-appbar' sx={{
                 backgroundColor: theme.palette.secondary.main, 
                 opacity: headerVisible ? 1 : 0,
                 transition: 'opacity 0.3s ease-in-out', 

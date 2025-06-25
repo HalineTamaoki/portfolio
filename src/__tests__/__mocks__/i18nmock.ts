@@ -1,6 +1,14 @@
-import { vi } from "vitest";
+let currentLanguage = 'en';
 
 export const useTranslation = () => ({
-    t: (key: string) => key,
-    i18n: { changeLanguage: vi.fn(), language: 'en' },
+  t: (key: string) => key,
+  i18n: {
+    changeLanguage: (lang: string) => {
+      currentLanguage = lang;
+      return Promise.resolve();
+    },
+    get language() {
+      return currentLanguage;
+    },
+  },
 });

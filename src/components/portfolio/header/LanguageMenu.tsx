@@ -15,7 +15,7 @@ export default function LanguageMenu({handleClose, anchorEl}: {handleClose: () =
         <ClickAwayListener onClickAway={handleClose}>
             <Paper sx={{ width: 320, maxWidth: '100%', alignSelf: 'end', left: {xs: 0, sm: 'auto'}}}>
                 <Menu anchorEl={anchorEl} open={true} onClose={handleClose}>
-                    <MenuItem onClick={() => changeLanguage('ptBr')} sx={{display: 'flex', gap: 2}}>
+                    <MenuItem onClick={() => changeLanguage('ptBr')} sx={{display: 'flex', gap: 2}} id='language-ptBr'>
                         <ListItemIcon>
                             <ReactCountryFlag countryCode='BR' svg style={{width: '1.5em', height: '1.5em'}} />
                         </ListItemIcon>
@@ -23,11 +23,11 @@ export default function LanguageMenu({handleClose, anchorEl}: {handleClose: () =
                     </MenuItem>
                     <MenuItem onClick={() => changeLanguage('en')} sx={{display: 'flex', gap: 2}}>
                         <ListItemIcon>
-                            <ReactCountryFlag countryCode='US' svg style={{width: '1.5em', height: '1.5em'}} />
+                            <ReactCountryFlag countryCode='US' svg style={{width: '1.5em', height: '1.5em'}}  id='language-en'/>
                         </ListItemIcon>
                         <ListItemText secondary={t('english')}/>
                     </MenuItem>
-                    <MenuItem onClick={() => changeLanguage('es')} sx={{display: 'flex', gap: 2}}>
+                    <MenuItem onClick={() => changeLanguage('es')} sx={{display: 'flex', gap: 2}} id='language-es'>
                         <ListItemIcon>
                             <ReactCountryFlag countryCode='ES' svg style={{width: '1.5em', height: '1.5em'}} />
                         </ListItemIcon>
