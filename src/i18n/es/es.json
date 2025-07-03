@@ -1,1 +1,44 @@
-{}
+{
+    "nav-about": "¿Quién soy?",
+    "nav-projects": "Proyectos",
+    "nav-contact": "Contacto",
+
+    "portuguese": "Portugués",
+    "english": "Inglés",
+    "spanish": "Español",
+    "change-language-button": "Cambiar idioma",
+
+    "dark-mode": "Oscuro",
+    "light-mode": "Claro",
+    "change-mode-button": "Cambiar modo",
+
+    "about-subtitle": "Soy un desarrollador Full Stack con experiencia en desarrollo web. He trabajado en proyectos nacionales e internacionales.",
+    "about-text": "Mi trayectoria comenzó en el área de Capacitación y Desarrollo, pero en 2021 descubrí mi verdadera vocación en el área de TI. Hablo inglés, español y portugués, y un poco de alemán y japonés. En mi tiempo libre, me gusta correr y hacer ejercicio.",
+    "about-frontend": "Desarrollo Frontend",
+    "about-backend": "Desarrollo Backend",
+    "about-qa": "Quality Assurance (QA)",
+    "about-frontend1": "React, Angular",
+    "about-frontend2": "Material UI, Angular Material, CSS",
+    "about-backend1": "Spring Boot (JAVA)",
+    "about-backend2": "MySQL, Oracle SQL, PostgreSQL, MongoDB",
+    "about-qa1": "Playwright, Postman",
+    "about-qa2": "Pruebas manuales",
+
+    "projects-header": "Mis Proyectos",
+    "projects-watch-demo": "Ver demostración",
+
+    "contact-header": "Contacto",
+    "contact-name": "Nombre",
+    "contact-email": "Correo electrónico",
+    "contact-message": "Mensaje",
+    "contact-send": "Enviar",
+
+    "form-mandatory": "{{field}} es obligatorio",
+    "form-email-error": "El correo electrónico debe contener un '@'",
+
+    "required": "Obligatorio",
+    "wrong-email-format": "Formato de correo electrónico incorrecto",
+    
+    "message-sent": "Gracias por tu mensaje 😄",
+    "error-sending-email": "Hubo un error al enviar el correo electrónico. Por favor, inténtalo más tarde."
+}

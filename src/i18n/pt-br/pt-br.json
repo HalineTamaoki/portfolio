@@ -3,7 +3,42 @@
     "nav-projects": "Projetos",
     "nav-contact": "Contato",
 
-    "portuguese": "Português",
-    "english": "Inglês",
-    "spanish": "Espanhol"
+  "portuguese": "Português",
+  "english": "Inglês",
+  "spanish": "Espanhol",
+  "change-language-button": "Alterar idioma",
+
+  "dark-mode": "Escuro",
+  "light-mode": "Claro",
+  "change-mode-button": "Alterar modo",
+
+  "about-subtitle": "Sou desenvolvedor Full Stack com experiência em desenvolvimento web. Já atuei em projetos nacionais e internacionais.",
+  "about-text": "Minha jornada começou com Treinamento e Desenvolvimento, mas em 2021 descobri minha verdadeira vocação na área de TI. Falo inglês, espanhol e português, além de um pouco de alemão e japonês. No meu tempo livre, gosto de correr e praticar exercícios.",
+  "about-frontend": "Desenvolvimento Frontend",
+  "about-backend": "Desenvolvimento Backend",
+  "about-qa": "Quality Assurance (QA)",
+  "about-frontend1": "React, Angular",
+  "about-frontend2": "Material UI, Angular Material, CSS",
+  "about-backend1": "Spring Boot (JAVA)",
+  "about-backend2": "MySQL, Oracle SQL, PostgreSQL, MongoDB",
+  "about-qa1": "Playwright, Postman",
+  "about-qa2": "Testes manuais",
+
+  "projects-header": "Meus Projetos",
+  "projects-watch-demo": "Ver demonstração",
+
+  "contact-header": "Contato",
+  "contact-name": "Nome",
+  "contact-email": "E-mail",
+  "contact-message": "Mensagem",
+  "contact-send": "Enviar",
+
+  "form-mandatory": "{{field}} é obrigatório",
+  "form-email-error": "O e-mail deve conter um '@'",
+
+  "required": "Obrigatório",
+  "wrong-email-format": "Formato de e-mail inválido",
+  
+  "message-sent": "Obrigado pela sua mensagem 😄",
+  "error-sending-email": "Houve um erro ao enviar o e-mail. Por favor, tente novamente mais tarde."
 }
