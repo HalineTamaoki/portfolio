@@ -119,8 +119,7 @@ export function ContactForm({setEmailStatus}: {setEmailStatus: Dispatch<SetState
                     }}}
                 disabled={isSendingEmail}
             > 
-                {!isSendingEmail && t('contact-send')}
-                {isSendingEmail && <CircularProgress sx={{color: theme.palette.common.white }} size={20} />}
+                {isSendingEmail ? <CircularProgress sx={{color: theme.palette.common.white }} size={20} /> : t('contact-send')}
             </Button>
         </Box>
     )

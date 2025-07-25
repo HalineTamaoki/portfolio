@@ -3,9 +3,10 @@ import { act } from "react";
 import { vi } from "vitest";
 import { ContactForm } from "../../components/portfolio/contact/ContactForm";
 import MockRender from "../__mocks__/MockRender";
+import { sendForm } from "@emailjs/browser";
 
 vi.mock('@emailjs/browser', () => ({
-  sendForm: vi.fn(() => Promise.resolve({ status: 200, text: 'OK' })),
+  sendForm: vi.fn(),
 }));
 
 const setEmailStatus = vi.fn();
@@ -44,6 +45,7 @@ describe("Contact Form tests", () => {
     });
 
     test("should send email", async () => {
+        vi.mocked(sendForm).mockReturnValue(Promise.resolve({ status: 200, text: 'OK' }));
         customRender();
 
         const nameField = screen.getByTestId('contact-form-name');
@@ -60,6 +62,27 @@ describe("Contact Form tests", () => {
 
         waitFor(() => {
             expect(setEmailStatus).toHaveBeenCalledWith('success');
+        })
+    });
+
+    test("should fail on send email", async () => {
+        vi.mocked(sendForm).mockRejectedValue({ status: 400, text: 'Fail' });
+        customRender();
+
+        const nameField = screen.getByTestId('contact-form-name');
+        act(() => fireEvent.change(nameField, {target: {value: 'Name'}}));
+
+        const emailField = screen.getByTestId('contact-form-email');
+        act(() => fireEvent.change(emailField, {target: {value: 'email@email.com'}}));
+
+        const messageField = screen.getByTestId('contact-form-message');
+        act(() => fireEvent.change(messageField, {target: {value: 'Message'}}));
+
+        const sendButton = screen.getByTestId('contact-send');
+        act(() => fireEvent.click(sendButton));
+
+        waitFor(() => {
+            expect(setEmailStatus).toHaveBeenCalledWith('error');
         })
     });
 });
