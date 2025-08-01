@@ -40,6 +40,7 @@ jobs:
   test:
     if: ${{ github.event.inputs.test == 'true' || github.event.inputs.deploy == 'true' }}
 
+    needs: build
     runs-on: ubuntu-latest
     name: Test
     steps:
@@ -49,6 +50,7 @@ jobs:
   deploy:
     if: ${{ github.event.inputs.deploy == 'true' }}
 
+    needs: test
     runs-on: ubuntu-latest
     name: Deploy
     steps:
