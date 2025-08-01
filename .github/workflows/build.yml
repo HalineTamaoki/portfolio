@@ -4,15 +4,10 @@ on:
   workflow_dispatch: 
     inputs:
       build:
-        description: 'NPM build'
+        description: 'NPM build and test'
         type: boolean
         required: true
         default: true
-      test:
-        description: 'NPM test (Jest)'
-        type: boolean
-        required: true
-        default: true    
       deploy:
         description: 'Deploy'
         type: boolean
@@ -36,6 +31,14 @@ jobs:
       - name: Install all dependencies
         run: npm install
       
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Build
         env:
           VITE_EMAIL_SERVICE_ID: ${{ secrets.VITE_EMAIL_SERVICE_ID }}
