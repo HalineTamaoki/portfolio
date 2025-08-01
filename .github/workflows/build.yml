@@ -22,7 +22,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build
+    name: Build And Test
     steps:
       - name: git-checkout
         uses: actions/checkout@v3
@@ -43,20 +43,13 @@ jobs:
           VITE_EMAIL_PUBLIC_KEY: ${{ secrets.VITE_EMAIL_PUBLIC_KEY }}
         run: npm run build
 
-  test:
-    if: ${{ github.event.inputs.test == 'true' || github.event.inputs.deploy == 'true' }}
-
-    needs: build
-    runs-on: ubuntu-latest
-    name: Test
-    steps:
       - name: Test
         run: npm run test
 
   deploy:
     if: ${{ github.event.inputs.deploy == 'true' }}
 
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     name: Deploy
     steps:
