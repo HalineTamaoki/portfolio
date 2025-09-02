@@ -1,15 +1,15 @@
 import { Box, Typography, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import ProjectCard from './ProjectCard';
+import { ProjectCard } from './ProjectCard';
 import SectionLayout from '../SectionLayout';
 import { projects } from '../../../common/projects';
 import { useContext, useEffect, useState } from 'react';
 import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import NavigationButton from './NavigationButton';
+import { NavigationButton } from './NavigationButton';
 import { ThemeContext } from '../../../context/ThemeContext';
-import VideoModal from './VideoModal';
+import { VideoModal } from './VideoModal';
 
 export function Project() {
     const { t } = useTranslation();
@@ -38,9 +38,10 @@ export function Project() {
             >
                 <Box
                     display={'flex'}   
-                    alignItems='center'                     
+                    alignItems='center'
+                    id='project-swiper-wrapper'                     
                 >
-                    <NavigationButton direction='prev'/>
+                    <NavigationButton direction='prev' id='project-prev-button'/>
                     <Swiper modules={[Navigation, Pagination]}
                         spaceBetween={20}
                         slidesPerView={slidesPerView}
@@ -57,7 +58,7 @@ export function Project() {
                             <ProjectCard project={p} openVideo={setVideoOpen}/>
                         </SwiperSlide>)}
                     </Swiper>
-                    <NavigationButton direction='next'/>
+                    <NavigationButton direction='next' id='project-next-button'/>
                 </Box>
                 <Box 
                     className='swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal'

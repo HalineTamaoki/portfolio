@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { t } from "i18next";
 import { GitHub } from "@mui/icons-material";
 
-export default function ProjectCard({project: {imageSrc, name, tags, description, demoSrc, githubUrl}, openVideo}: {
+export function ProjectCard({project: {imageSrc, name, tags, description, demoSrc, githubUrl}, openVideo}: {
     project: Project,     
     openVideo: (demoSrc: string) => void    
 }) {

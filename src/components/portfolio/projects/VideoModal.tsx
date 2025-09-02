@@ -2,7 +2,7 @@ import { Close } from "@mui/icons-material";
 import { Box, Dialog, DialogContent, IconButton, useMediaQuery, useTheme } from "@mui/material";
 import { useState, useEffect } from "react";
 
-export default function VideoModal({onClose, src}: {onClose: () => void, src: string}) {
+export function VideoModal({onClose, src}: {onClose: () => void, src: string}) {
     const theme = useTheme();
     const breakpointUpMd = useMediaQuery(theme.breakpoints.up('md'));
     const [ controlsOpen, setcontrolsOpen ] = useState<boolean>(false);
@@ -20,6 +20,7 @@ export default function VideoModal({onClose, src}: {onClose: () => void, src: st
         <Dialog
             open={true}
             onClose={onClose}
+            id="video-dialog"
         >
             <DialogContent sx={{p: 0}} onClick={() => breakpointUpMd ? undefined : setcontrolsOpen(!controlsOpen)}>
                 <IconButton 
