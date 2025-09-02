@@ -5,7 +5,7 @@ import { Project } from "../../../components/portfolio/projects/Project";
 import { Project as ProjectType } from "../../../types/Project";
 import MockRender from "../../__mocks__/MockRender";
 
-vi.mock('../../components/portfolio/projects/ProjectCard', () => ({
+vi.mock('../../../components/portfolio/projects/ProjectCard', () => ({
     ProjectCard: vi.fn(({project, openVideo}: {project: ProjectType, openVideo: (demoSrc: string) => void}) => (
         <div id={project.name.en}>
             <p>{project.name.en}</p>
@@ -20,7 +20,7 @@ const customRender = () => render(
     </MockRender>
 );
 
-describe("Contact page tests", () => {
+describe("Project page tests", () => {
     beforeEach(() => {
         vi.clearAllMocks();
     });

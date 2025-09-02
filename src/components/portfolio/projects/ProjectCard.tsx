@@ -24,11 +24,12 @@ export function ProjectCard({project: {imageSrc, name, tags, description, demoSr
                 image={imageSrc} 
                 aria-hidden={true}  
                 sx={{mt: 1, borderRadius: 5, height: {xs: 150, sm: 180}}}
+                id={`card-media-${name[language]}`}
             />
             <CardContent sx={{color: theme.palette.common.black}}>
                 <Stack direction='row' gap={1}>
                     <Typography variant='subtitle1'>{name[language]}</Typography>
-                    {githubUrl && <Link href={githubUrl} target='_blank'>
+                    {githubUrl && <Link href={githubUrl} target='_blank' id={`card-github-link-${name[language]}`}>
                         <GitHub sx={{color: theme.palette.common.black}}/>
                     </Link>}
                 </Stack>
@@ -53,6 +54,7 @@ export function ProjectCard({project: {imageSrc, name, tags, description, demoSr
                 {demoSrc && <Button 
                     size="small" 
                     variant="contained" 
+                    id={`card-open-demo-${name[language]}`}
                     sx={{
                         borderRadius: 5, 
                         bgcolor: theme.palette.secondary.light, 
