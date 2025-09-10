@@ -24,8 +24,8 @@ vi.mock("../../../hooks/useGetCurrentBreakpoint", async () => {
 
 vi.mock('swiper/react', () => {
     return {
-        Swiper: vi.fn(({ children, spacebetween, ...props }) => (
-            <div {...props} data-slidesperview={props.slidesPerView}>
+        Swiper: vi.fn(({ children, spacebetween, slidesPerView, ...props }) => (
+            <div {...props} data-slidesperview={slidesPerView}>
                 {children}
             </div>
         )),
