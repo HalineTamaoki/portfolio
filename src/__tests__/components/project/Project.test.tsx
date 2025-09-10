@@ -24,8 +24,8 @@ vi.mock("../../../hooks/useGetCurrentBreakpoint", async () => {
 
 vi.mock('swiper/react', () => {
     return {
-        Swiper: vi.fn(({ children, ...props }) => (
-            <div {...props} data-slidesPerView={props.slidesPerView}>
+        Swiper: vi.fn(({ children, spacebetween, ...props }) => (
+            <div {...props} data-slidesperview={props.slidesPerView}>
                 {children}
             </div>
         )),
@@ -84,6 +84,6 @@ describe("Project page tests", () => {
         (useGetCurrentBreakpoint as Mock).mockReturnValue(breakPoint);
 
         customRender();
-        expect(screen.getByTestId('project-swiper').getAttribute('data-slidesPerView')).toBe(expectedSlides.toString());
+        expect(screen.getByTestId('project-swiper').getAttribute('data-slidesperview')).toBe(expectedSlides.toString());
     });
 });
