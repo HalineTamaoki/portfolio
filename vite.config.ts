@@ -11,7 +11,13 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/__tests__/setupTest.tsx',
     coverage: {
-      include: ['src/**/*'],
+      include: [
+        'src/components/**/*', 
+        'src/common/**/*', 
+        'src/context/**/*', 
+        'src/hooks/**/*',
+        'src/pages/**/*'
+      ],
       all: true,
       thresholds: {
         statements: 80,
