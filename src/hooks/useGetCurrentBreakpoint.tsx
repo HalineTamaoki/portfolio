@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { useMediaQuery } from '@mui/material';
 
 const useGetCurrentBreakpoint = () => {
   const theme = useTheme();

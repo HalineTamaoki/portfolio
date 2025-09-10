@@ -53,7 +53,8 @@ export function Project() {
                             el: '.swiper-pagination',
                             clickable: breakPoint === 'lg' || breakPoint === 'xl'
                         }}
-                        >
+                        id='project-swiper'
+                    >
                         {projects.map(p => <SwiperSlide key={p.name.en} style={{ height: '100%' }} >
                             <ProjectCard project={p} openVideo={setVideoOpen}/>
                         </SwiperSlide>)}
