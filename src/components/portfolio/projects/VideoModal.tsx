@@ -50,7 +50,7 @@ export function VideoModal({onClose, src}: {onClose: () => void, src: string}) {
                     style={{width: '100%', maxHeight: '85vh', objectFit: 'cover'}}
                     onClick={e => !breakpointUpMd && e.preventDefault()}
                 >
-                    <source src={src} type="video/mp4" />
+                    <source src={src} type="video/mp4" id="video-source" />
                 </Box>
             </DialogContent>
         </Dialog>
