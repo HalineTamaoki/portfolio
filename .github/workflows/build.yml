@@ -61,8 +61,11 @@ jobs:
 
       - name: Add Hostinger to known_hosts
         run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.HOSTINGER_SSH_PORT }} ${{ secrets.HOSTINGER_SSH_HOST }} >> ~/.ssh/known_hosts
-
+  
       - name: Deploy application
         run: |
           scp -P ${{ secrets.HOSTINGER_SSH_PORT }} -i id_rsa build.zip \
