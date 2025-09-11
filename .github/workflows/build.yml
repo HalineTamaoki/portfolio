@@ -8,11 +8,6 @@ on:
         type: boolean
         required: true
         default: true
-      deploy:
-        description: 'Deploy'
-        type: boolean
-        required: true
-        default: false
 
 jobs:
   build:
