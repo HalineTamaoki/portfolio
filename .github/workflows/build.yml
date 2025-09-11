@@ -65,13 +65,7 @@ jobs:
           echo "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.HOSTINGER_SSH_PORT }} ${{ secrets.HOSTINGER_SSH_HOST }} >> ~/.ssh/known_hosts
-      - name: Verificar build.zip
-        run: ls -lh build.zip
       
-      - name: Testar conexão SSH
-        run: |
-          ssh -p ${{ secrets.HOSTINGER_SSH_PORT }} -i id_rsa \
-            ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }} "echo 'Conexão OK'"
       - name: Deploy application
         run: |
           set -e
