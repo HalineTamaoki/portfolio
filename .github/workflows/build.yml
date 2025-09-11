@@ -52,8 +52,8 @@ jobs:
 
       - name: Deploy application
         run: |
-          curl -X POST ${{ secrets.HOSTINGER_WEBHOOK_URL }} \
-          -F "file=@build.zip"
-
-
- 
+          response=$(curl -s -o /dev/null -w "%{http_code}" -X POST ${{ secrets.HOSTINGER_WEBHOOK_URL }} -F "file=@build.zip")
+          if [ "$response" -ne 200 ]; then
+            echo "Erro ao enviar para Hostinger. Código HTTP: $response"
+            exit 1
+          fi 
