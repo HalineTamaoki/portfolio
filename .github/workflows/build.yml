@@ -68,12 +68,8 @@ jobs:
   
       - name: Deploy application
         run: |
-          scp -P ${{ secrets.HOSTINGER_SSH_PORT }} -i id_rsa build.zip \
-            ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }}:${{ secrets.HOSTINGER_DEPLOY_PATH }}
-          if [ $? -ne 0 ]; then
-            echo "Error sending to Hostinger"
-            exit 1
-          fi
+          set -e
+          scp -P ${{ secrets.HOSTINGER_SSH_PORT }} build.zip ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }}:${{ secrets.HOSTINGER_DEPLOY_PATH }}
 
       - name: Unzip build.zip in the server
         run: |
