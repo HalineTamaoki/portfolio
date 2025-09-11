@@ -54,9 +54,16 @@ jobs:
       - name: Zip files
         run: zip -r build.zip build
 
-      - name: Deploy application
+      - name: Configure SSH key
         run: |
           echo "${{ secrets.HOSTINGER_SSH_KEY }}" > id_rsa
           chmod 600 id_rsa
-          rsync -avz -e "ssh -i id_rsa -o StrictHostKeyChecking=no" \
-            build/ ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }}:${{ secrets.HOSTINGER_DEPLOY_PATH }}
+    
+      - name: Deploy application
+        run: |
+          scp -P ${{ secrets.HOSTINGER_SSH_PORT }} -i id_rsa build.zip \
+            ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }}:${{ secrets.HOSTINGER_DEPLOY_PATH }}
+          if [ $? -ne 0 ]; then
+            echo "Error sending to Hostinger"
+            exit 1
+          fi
