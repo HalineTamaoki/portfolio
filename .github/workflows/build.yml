@@ -74,5 +74,14 @@ jobs:
       - name: Unzip build.zip in the server
         run: |
           ssh -p ${{ secrets.HOSTINGER_SSH_PORT }} -i id_rsa \
-            ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }} \
-            "unzip -o ${{ secrets.HOSTINGER_DEPLOY_PATH }}/build.zip -d ${{ secrets.HOSTINGER_DEPLOY_PATH }}"
+            ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }} << 'EOF'
+            set -e
+            cd ${{ secrets.HOSTINGER_DEPLOY_PATH }}
+            # Unzip build.zip inside build folder
+            unzip -o build.zip -d build
+            # move the build files into the main directory, overriding the existents and preserving .htaccess
+            find build -type f -exec mv -f {} . \;
+            # Remove build folder and ZIP
+            rm -rf build build.zip
+            echo "✅ Deploy successfully finished"
+          EOF
