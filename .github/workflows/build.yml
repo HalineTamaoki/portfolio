@@ -49,20 +49,13 @@ jobs:
       - name: Test
         run: npm run test
 
-  deploy:
-    if: ${{ github.event.inputs.deploy == 'true' }}
+      - name: Zip files
+        run: zip -r build.zip build
 
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: build
-          FOLDER: build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Build: ({sha}) {msg}"
-        
+      - name: Deploy application
+        run: |
+          curl -X POST ${{ secrets.HOSTINGER_WEBHOOK_URL }} \
+          -F "file=@build.zip"
+
+
  
