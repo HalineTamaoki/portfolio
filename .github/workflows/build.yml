@@ -80,7 +80,7 @@ jobs:
             # Unzip build.zip inside build folder
             unzip -o build.zip -d build
             # move the build files into the main directory, overriding the existents and preserving .htaccess
-            find build -type f -exec mv -f {} . \;
+            rsync -av build/ . --exclude='.htaccess'
             # Remove build folder and ZIP
             rm -rf build build.zip
             echo "✅ Deploy successfully finished"
