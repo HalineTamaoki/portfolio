@@ -58,7 +58,11 @@ jobs:
         run: |
           echo "${{ secrets.HOSTINGER_SSH_KEY }}" > id_rsa
           chmod 600 id_rsa
-    
+
+      - name: Add Hostinger to known_hosts
+        run: |
+          ssh-keyscan -p ${{ secrets.HOSTINGER_SSH_PORT }} ${{ secrets.HOSTINGER_SSH_HOST }} >> ~/.ssh/known_hosts
+
       - name: Deploy application
         run: |
           scp -P ${{ secrets.HOSTINGER_SSH_PORT }} -i id_rsa build.zip \
@@ -67,3 +71,9 @@ jobs:
             echo "Error sending to Hostinger"
             exit 1
           fi
+
+      - name: Unzip build.zip in the server
+        run: |
+          ssh -p ${{ secrets.HOSTINGER_SSH_PORT }} -i id_rsa \
+            ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }} \
+            "unzip -o ${{ secrets.HOSTINGER_DEPLOY_PATH }}/build.zip -d ${{ secrets.HOSTINGER_DEPLOY_PATH }}"
