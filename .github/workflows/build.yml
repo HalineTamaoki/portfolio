@@ -12,6 +12,10 @@ on:
         required: true
         default: true
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -52,8 +56,7 @@ jobs:
 
       - name: Deploy application
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" -X POST ${{ secrets.HOSTINGER_WEBHOOK_URL }} -F "file=@build.zip")
-          if [ "$response" -ne 200 ]; then
-            echo "Erro ao enviar para Hostinger. Código HTTP: $response"
-            exit 1
-          fi 
+          echo "${{ secrets.HOSTINGER_SSH_KEY }}" > id_rsa
+          chmod 600 id_rsa
+          rsync -avz -e "ssh -i id_rsa -o StrictHostKeyChecking=no" \
+            build/ ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SSH_HOST }}:${{ secrets.HOSTINGER_DEPLOY_PATH }}
