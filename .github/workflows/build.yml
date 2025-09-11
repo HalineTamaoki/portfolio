@@ -1,10 +1,13 @@
 name: Build and Rollout Pipeline
 
 on: 
+  push:
+    branches:
+      - main
   workflow_dispatch: 
     inputs:
       build:
-        description: 'NPM build and test'
+        description: 'NPM build, test and deploy'
         type: boolean
         required: true
         default: true
