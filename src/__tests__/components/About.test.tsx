@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import MockRender from "../__mocks__/MockRender";
-import { About } from "../../components/portfolio/about/About";
+import { About } from "../../components/about/About";
 
 const customRender = () => render(
     <MockRender>

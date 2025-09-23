@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { sections } from "../../common/utils";
-import { Header } from "../../components/portfolio/header/Header";
+import { Header } from "../../components/header/Header";
 import MockRender from "../__mocks__/MockRender";
 import { describe, vi } from "vitest";
 

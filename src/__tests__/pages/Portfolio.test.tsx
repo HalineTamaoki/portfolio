@@ -3,19 +3,19 @@ import { vi } from "vitest";
 import Portfolio from "../../pages/Portfolio";
 import MockRender from "../__mocks__/MockRender";
 
-vi.mock('../../components/portfolio/about/About', () => ({
+vi.mock('../../components/about/About', () => ({
     About: vi.fn(() => <div id="about">About</div>)
 }))
 
-vi.mock('../../components/portfolio/projects/Project', () => ({
+vi.mock('../../components/projects/Project', () => ({
     Project: vi.fn(() => <div id="projects">Project</div>)
 }))
 
-vi.mock('../../components/portfolio/contact/Contact', () => ({
+vi.mock('../../components/contact/Contact', () => ({
     Contact: vi.fn(() => <div id="contact">Contact</div>)
 }))
 
-vi.mock('../../components/portfolio/header/Header', () => ({
+vi.mock('../../components/header/Header', () => ({
     Header: vi.fn(() => <div id="header">Header</div>)
 }))
 

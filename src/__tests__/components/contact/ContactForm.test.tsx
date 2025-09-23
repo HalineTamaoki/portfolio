@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { act } from "react";
 import { vi } from "vitest";
-import { ContactForm } from "../../../components/portfolio/contact/ContactForm";
+import { ContactForm } from "../../../components/contact/ContactForm";
 import MockRender from "../../__mocks__/MockRender";
 import { sendForm } from "@emailjs/browser";
 

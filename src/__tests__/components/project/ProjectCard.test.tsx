@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { ProjectCard } from "../../../components/portfolio/projects/ProjectCard";
+import { ProjectCard } from "../../../components/projects/ProjectCard";
 import { Project, ProjectTags } from "../../../types/Project";
 import MockRender from "../../__mocks__/MockRender";
 

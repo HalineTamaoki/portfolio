@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import MockRender from "../../__mocks__/MockRender";
-import { Contact, contactInfo } from "../../../components/portfolio/contact/Contact";
+import { Contact, contactInfo } from "../../../components/contact/Contact";
 import { vi } from "vitest";
 
-vi.mock('../../../components/portfolio/contact/ContactForm', () => ({
+vi.mock('../../../components/contact/ContactForm', () => ({
     ContactForm: vi.fn(({setEmailStatus}: {setEmailStatus: (status: string) => void}) => <div>
         <button id="contact-form-success" onClick={() => setEmailStatus('success')}>Contact Form</button> 
         <button id="contact-form-error" onClick={() => setEmailStatus('error')}>Contact Form</button> 

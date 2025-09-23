@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import { vi } from "vitest";
-import { VideoModal } from "../../../components/portfolio/projects/VideoModal";
+import { VideoModal } from "../../../components/projects/VideoModal";
 import * as mui from "@mui/material";
 
 const src = "test.mp4";
