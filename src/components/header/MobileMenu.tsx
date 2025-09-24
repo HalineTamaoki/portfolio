@@ -1,5 +1,5 @@
 import { Box, Divider, List, ListItem, ListItemButton, Drawer, Typography, useTheme } from '@mui/material'
-import { sections } from '../../../common/utils';
+import { sections } from '../../common/utils';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 

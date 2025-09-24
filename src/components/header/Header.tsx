@@ -1,14 +1,14 @@
 import { AppBar, Toolbar, useTheme, Stack, Button, Typography, Switch, FormGroup, IconButton } from '@mui/material'
-import { sections } from '../../../common/utils';
+import { sections } from '../../common/utils';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import MobileMenu from './MobileMenu';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import LanguageMenu from './LanguageMenu';
-import { ThemeContext } from '../../../context/ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
 import { DarkMode, LightMode, Menu } from '@mui/icons-material';
-import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
+import useGetCurrentBreakpoint from '../../hooks/useGetCurrentBreakpoint';
 
 export function Header() {
     const theme = useTheme();

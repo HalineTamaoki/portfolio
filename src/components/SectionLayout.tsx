@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { sections } from '../../common/utils'
+import { sections } from '../common/utils'
 import { Box, SxProps } from '@mui/material'
 
 export default function SectionLayout({children, position, sx}: {children: ReactNode, position: number, sx?: SxProps}) {

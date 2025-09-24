@@ -2,13 +2,13 @@ import { Box, Typography, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { ProjectCard } from './ProjectCard';
 import SectionLayout from '../SectionLayout';
-import { projects } from '../../../common/projects';
+import { projects } from '../../common/projects';
 import { useContext, useEffect, useState } from 'react';
-import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
+import useGetCurrentBreakpoint from '../../hooks/useGetCurrentBreakpoint';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { NavigationButton } from './NavigationButton';
-import { ThemeContext } from '../../../context/ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
 import { VideoModal } from './VideoModal';
 
 export function Project() {

@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material'
-import useGetCurrentBreakpoint from '../../../hooks/useGetCurrentBreakpoint';
+import useGetCurrentBreakpoint from '../../hooks/useGetCurrentBreakpoint';
 
 export function NavigationButton({direction, id}: {direction: 'prev' | 'next', id: string}) {
   const breakPoint = useGetCurrentBreakpoint();

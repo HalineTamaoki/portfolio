@@ -1,10 +1,10 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { Mock, vi } from "vitest";
 import { projects } from "../../../common/projects";
-import { Project } from "../../../components/projects/Project";
 import { Project as ProjectType } from "../../../types/Project";
 import MockRender from "../../__mocks__/MockRender";
 import useGetCurrentBreakpoint from "../../../hooks/useGetCurrentBreakpoint";
+import { Project } from "../../../components/projects/Project";
 
 vi.mock('../../../components/projects/ProjectCard', () => ({
     ProjectCard: vi.fn(({project, openVideo}: {project: ProjectType, openVideo: (demoSrc: string) => void}) => (

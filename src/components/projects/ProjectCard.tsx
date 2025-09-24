@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Chip, Link, Stack, Typography, useTheme } from "@mui/material";
-import { Project } from "../../../types/Project";
+import { Project } from "../../types/Project";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
 import { GitHub } from "@mui/icons-material";

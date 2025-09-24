@@ -4,7 +4,7 @@ import { grey } from "@mui/material/colors";
 import { Dispatch, SetStateAction, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { EMAIL_PUBLIC_KEY, EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID } from "../../../common/enviroment";
+import { EMAIL_PUBLIC_KEY, EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID } from "../../common/enviroment";
 
 export function ContactForm({setEmailStatus}: {setEmailStatus: Dispatch<SetStateAction<"error" | "success" | undefined>>}) {
     const theme = useTheme();

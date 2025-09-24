@@ -1,8 +1,8 @@
-import { Header } from '../components/header/Header'
-import { About } from '../components/about/About'
+import { Header } from '../components/header/Header
+import { About } from '../components/about/About
 import { Box } from '@mui/material'
-import { Project } from '../components/projects/Project'
-import { Contact } from '../components/contact/Contact'
+import { Project } from '../components/projects/Project
+import { Contact } from '../components/contact/Contact
 
 export default function Portfolio() {
   return (
