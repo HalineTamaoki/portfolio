@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import AboutCards, { AboutCardItem } from "./AboutCards";
 import { Brush, CheckBox, Code, Storage, ThumbsUpDown } from "@mui/icons-material";
-import myPhoto from './../../../assets/mypicture.png';
+import myPhoto from './../../assets/mypicture.png';
 import SectionLayout from "../SectionLayout";
 
 const frontendItems: AboutCardItem[] = [
