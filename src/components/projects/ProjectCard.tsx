@@ -39,7 +39,7 @@ export function ProjectCard({project: {imageSrc, name, tags, description, demoSr
                     sx={{color: theme.palette.common.black, p: 0.8, fontSize: '0.8em'}}
                 />)}</Stack>
                 <Stack gap={2}>
-                    {description[language].split('\n').map(des => (
+                    {description[language]?.split('\n').map(des => (
                         <Typography 
                             key={des}
                             textAlign={'justify'}
